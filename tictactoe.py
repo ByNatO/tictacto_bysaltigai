@@ -179,6 +179,9 @@ def minimax(board):
     if player(board) == X:
         best_value = -1
         best_move = (-1, -1)
+        c = sum(row.count(EMPTY) for row in board)
+        if c == 9:
+            return best_move
         for action in actions(board):
             move_value = min_value(result(board, action))
             if move_value == 1:
